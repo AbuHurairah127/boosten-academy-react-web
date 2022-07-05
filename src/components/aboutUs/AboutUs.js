@@ -5,10 +5,18 @@ import companyCEO from "./../../assets/companyCEO.png";
 const AboutUs = () => {
   return (
     <div className="max-w-screen min-h-[600px] xl:h-[945px]">
-      <div className="flex items-center py-8 md:p-10 lg:p-20 xl:p-24">
+      <h1
+        className="text-center text-4xl font-semibold p-5"
+        style={{
+          fontFamily: "work sans",
+        }}
+      >
+        About Us
+      </h1>
+      <div className="flex items-center py-8 md:p-10 lg:px-20 lg:py-12 xl:p-24">
         <img
           src={companyCEO}
-          alt="Company CEO Image"
+          alt="Company CEO"
           className="w-5/6 h-full shadow-2xl hidden lg:inline"
         />
         <div
@@ -18,17 +26,19 @@ const AboutUs = () => {
               "0px 20px 24px -4px rgba(17, 24, 39, 0.1), 0px 8px 8px -4px rgba(17, 24, 39, 0.04)",
           }}
         >
-          <h1 className="text-white text-2xl font-bold p-5">About Us</h1>
+          <h1 className="text-white text-2xl font-bold p-5">
+            30 Years of Experience
+          </h1>
           <p
             className="px-5 text-white leading-5"
             style={{
               fontFamily: "work sans",
             }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            veritatis omnis consequuntur adipisci obcaecati natus ducimus, a
-            dolores nostrum itaque, amet ratione quis. Rem, magnam? Architecto
-            cumque odit quibusdam possimus?
+            We not only teach students the syllabus books but also work on the
+            self development of students in terms of knowledge, skill,
+            competence, attitude, professional growth, value inculcation and
+            social cohesion.
           </p>
           <p
             className="px-5 text-white leading-5 pt-3"

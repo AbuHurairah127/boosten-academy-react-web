@@ -4,6 +4,7 @@ import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
 import AboutUs from "./components/aboutUs/AboutUs";
+import Classes from "./components/classes/Classes";
 function App() {
   return (
     <div className="container-fluid">
@@ -15,6 +16,9 @@ function App() {
       </div>
       <div className="aboutUsContainer">
         <AboutUs />
+      </div>
+      <div className="classesContainer">
+        <Classes />
       </div>
     </div>
   );
