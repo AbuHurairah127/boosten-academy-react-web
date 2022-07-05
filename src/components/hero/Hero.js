@@ -6,7 +6,7 @@ import Button from "../button/Button";
 const Hero = () => {
   return (
     <div
-      className="w-full h-[93vh] flex flex-col items-center justify-center"
+      className="w-full h-[100vh] flex flex-col items-center justify-center"
       style={{ background: "rgba(29, 53, 87,0.85)", objectFit: "contain" }}
     >
       <video
@@ -17,8 +17,7 @@ const Hero = () => {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-
-          position: "fixed",
+          position: "absolute",
           zIndex: -1,
         }}
       >

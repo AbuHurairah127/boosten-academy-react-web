@@ -3,7 +3,7 @@ import "@fontsource/work-sans";
 import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
-import Button from "./components/button/Button";
+import AboutUs from "./components/aboutUs/AboutUs";
 function App() {
   return (
     <div className="container-fluid">
@@ -12,6 +12,9 @@ function App() {
       </div>
       <div className="heroContainer z-0">
         <Hero />
+      </div>
+      <div className="aboutUsContainer">
+        <AboutUs />
       </div>
     </div>
   );

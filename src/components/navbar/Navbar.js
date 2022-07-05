@@ -15,7 +15,9 @@ const Navbar = () => {
             fontFamily: "work sans",
           }}
         >
-          Boosten Academy
+          <button>
+            <span className="text-[#F9995D]">Boosten</span> Academy
+          </button>
         </div>
         <div className="right w-fit">
           {/* Desktop Navgation */}
