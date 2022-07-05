@@ -3,6 +3,7 @@ import "@fontsource/work-sans";
 import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
+import Button from "./components/button/Button";
 function App() {
   return (
     <div className="container-fluid">

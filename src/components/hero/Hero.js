@@ -1,6 +1,7 @@
 import React from "react";
 import video from "./../../assets/video.mp4";
 import Typewriter from "typewriter-effect";
+import Button from "../button/Button";
 
 const Hero = () => {
   return (
@@ -46,6 +47,9 @@ const Hero = () => {
               .start()
           }
         />
+      </div>
+      <div className="mt-8">
+        <Button label="Login" />
       </div>
     </div>
   );
