@@ -7,7 +7,7 @@ import NavLinks from "./navLinks/NavLinks";
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
   return (
-    <div className="max-w-screen flex flex-col h-16 bg-[#1d3557] ">
+    <div className="max-w-screen flex flex-col h-16 bg-[#1d3557] z-50">
       <div className="flex w-full justify-between items-center h-full px-3 md:px-6 lg:px-8 xl:px-12">
         <div
           className="left text-white w-fit whitespace-normal text-xl"
@@ -40,11 +40,15 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {clicked && (
-        <div className={`lg:hidden`}>
-          <MobileNavigation />
-        </div>
-      )}
+      <div
+        className={
+          +clicked
+            ? "lg:hidden transition-all duration-500 ease-out translate-y-2"
+            : "lg:hidden transition-all duration-500 ease-out -translate-y-80"
+        }
+      >
+        <MobileNavigation />
+      </div>
     </div>
   );
 };
