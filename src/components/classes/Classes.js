@@ -4,7 +4,7 @@ import ClassesCard from "./classesCard/ClassesCard";
 
 const Classes = () => {
   return (
-    <div className="max-w-screen h-fit bg-[#E0E3EB]">
+    <div className="max-w-screen h-fit bg-[#E0E3EB]" id="classes">
       <div className="classesHeading pt-5">
         <h1
           className="text-4xl text-center font-semibold"

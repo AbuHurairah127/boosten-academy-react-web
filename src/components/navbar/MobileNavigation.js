@@ -5,7 +5,7 @@ const MobileNavigation = () => {
   return (
     <div className="w-screen h-max bg-[#1D3557]">
       {navLinks.map((item, index) => (
-        <NavLinks label={item} key={index} />
+        <NavLinks data={item} key={index} />
       ))}
     </div>
   );

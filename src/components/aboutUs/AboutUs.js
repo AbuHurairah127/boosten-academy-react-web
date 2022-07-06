@@ -4,7 +4,7 @@ import companyCEO from "./../../assets/companyCEO.png";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-screen min-h-[600px] xl:h-[945px]">
+    <div className="max-w-screen min-h-[600px] xl:h-[945px]" id="aboutUs">
       <h1
         className="text-center text-4xl font-semibold p-5"
         style={{

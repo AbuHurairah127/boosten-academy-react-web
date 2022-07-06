@@ -26,7 +26,7 @@ const Navbar = () => {
             style={{ fontFamily: "work sans" }}
           >
             {navLinks.map((item, index) => (
-              <NavLinks label={item} key={index} />
+              <NavLinks data={item} key={index} />
             ))}
           </div>
           {/* Mobile Navigation */}
