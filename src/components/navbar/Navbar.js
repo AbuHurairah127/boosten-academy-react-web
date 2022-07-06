@@ -44,7 +44,7 @@ const Navbar = () => {
       </div>
       <div
         className={
-          +clicked
+          clicked
             ? "lg:hidden transition-all duration-500 ease-out translate-y-2"
             : "lg:hidden transition-all duration-500 ease-out -translate-y-80"
         }

@@ -9,7 +9,7 @@ const Ads = () => {
           Free consultation with exceptional quality.
         </h1>
         <p className="text-center md:text-left ads-text">
-          Just one call away: +92 320 7443537
+          Just one text away: +92 320 7443537
         </p>
       </div>
       <div className="btn-container">

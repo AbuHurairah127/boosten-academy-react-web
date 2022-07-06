@@ -6,6 +6,8 @@
     ),
     url(./../../assets/adsBg.jpg);
   background-attachment: fixed;
+  background-size: 100% 100%;
+  object-fit: cover;
 }
 .ads-text {
   font-family: "work sans";

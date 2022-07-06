@@ -6,6 +6,7 @@ import Hero from "./components/hero/Hero";
 import AboutUs from "./components/aboutUs/AboutUs";
 import Classes from "./components/classes/Classes";
 import Ads from "./components/ads/Ads";
+import ContactForm from "./components/constactUs/ContactForm";
 function App() {
   return (
     <div className="container-fluid">
@@ -23,6 +24,9 @@ function App() {
       </div>
       <div className="adsContainer">
         <Ads />
+      </div>
+      <div className="contactFormContainer">
+        <ContactForm />
       </div>
     </div>
   );
