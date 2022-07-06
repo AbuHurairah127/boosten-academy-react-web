@@ -1,0 +1,22 @@
+.ads-container {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.822),
+      rgba(228, 228, 228, 0.7)
+    ),
+    url(./../../assets/adsBg.jpg);
+  background-attachment: fixed;
+}
+.ads-text {
+  font-family: "work sans";
+  padding-top: 30px;
+  color: white;
+}
+.button {
+  background-color: transparent;
+  color: white;
+  border-width: 2px;
+  border-color: white;
+  border-radius: 4px;
+  padding: 8px 15px;
+}

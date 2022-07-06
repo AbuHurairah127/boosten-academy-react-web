@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
 import AboutUs from "./components/aboutUs/AboutUs";
 import Classes from "./components/classes/Classes";
+import Ads from "./components/ads/Ads";
 function App() {
   return (
     <div className="container-fluid">
@@ -19,6 +20,9 @@ function App() {
       </div>
       <div className="classesContainer">
         <Classes />
+      </div>
+      <div className="adsContainer">
+        <Ads />
       </div>
     </div>
   );
