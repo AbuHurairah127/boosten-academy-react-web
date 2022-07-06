@@ -8,8 +8,14 @@ const Ads = () => {
         <h1 className="text-white text-center md:text-left opacity text-3xl font-bold">
           Free consultation with exceptional quality.
         </h1>
+
         <p className="text-center md:text-left ads-text">
-          Just one text away: +92 320 7443537
+          Foreign Scholarships <br />
+          CSS and PMS exams Preparation
+          <br />
+          <br />
+          <hr />
+          <br /> <p className="text-xl"> Just one text away</p>
         </p>
       </div>
       <div className="btn-container">

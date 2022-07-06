@@ -43,6 +43,8 @@ const Hero = () => {
               .pauseFor(2000)
               .deleteAll()
               .typeString("Leading students towards excellence")
+              .pauseFor(2000)
+              .deleteAll()
               .start()
           }
         />

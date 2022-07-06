@@ -7,6 +7,7 @@ import AboutUs from "./components/aboutUs/AboutUs";
 import Classes from "./components/classes/Classes";
 import Ads from "./components/ads/Ads";
 import ContactForm from "./components/constactUs/ContactForm";
+import Footer from "./components/footer/Footer";
 function App() {
   return (
     <div className="container-fluid">
@@ -27,6 +28,9 @@ function App() {
       </div>
       <div className="contactFormContainer">
         <ContactForm />
+      </div>
+      <div className="footerCContainer">
+        <Footer />
       </div>
     </div>
   );
