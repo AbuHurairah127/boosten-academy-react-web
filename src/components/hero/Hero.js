@@ -37,16 +37,14 @@ const Hero = () => {
       </div>
       <div className="text-3xl text-white pt-5 text-center w-[80vw]">
         <Typewriter
-          onInit={(typewriter) =>
-            typewriter
-              .typeString("The Academy of Science")
-              .pauseFor(2000)
-              .deleteAll()
-              .typeString("Leading students towards excellence")
-              .pauseFor(2000)
-              .deleteAll()
-              .start()
-          }
+          options={{
+            strings: [
+              "The Academy of Science",
+              "Leading Students Towards Excellence",
+            ],
+            autoStart: true,
+            loop: true,
+          }}
         />
       </div>
       <div className="mt-8">

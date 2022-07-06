@@ -3,7 +3,7 @@ import Button from "../button/Button";
 
 const ContactForm = () => {
   return (
-    <div className="bg-[#F6F8F7] min-h-[70vh] pb-5 max-w-screen flex flex-col">
+    <div className="bg-[#F6F8F7] min-h-max pb-5 max-w-screen flex flex-col">
       <div className="contactFormHeader w-full pt-8">
         <h1 className="text-center text-4xl font-bold">
           What we can do for you?

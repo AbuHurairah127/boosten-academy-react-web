@@ -11,17 +11,17 @@ import UseFooter from "./UseFooter";
 const Footer = () => {
   const { year } = UseFooter();
   return (
-    <div className="max-w-screen bg-[#1d3557] text-white flex flex-col justify-around min-h-[50vh]">
-      <div className="w-full flex justify-between">
-        <div className="left flex flex-col justify-between ml-5 min-h-[35vh] w-1/2">
-          <div className="leftHeader flex flex-col">
+    <div className="max-w-screen bg-[#1d3557] text-white flex flex-col justify-around  lg:min-h-[50vh] flex-wrap">
+      <div className="w-full flex justify-between flex-wrap flex-col items-center lg:flex-row lg:items-start">
+        <div className="left flex flex-col justify-between ml-5 lg:min-h-[35vh] lg:w-1/2">
+          <div className="leftHeader flex flex-col items-center lg:items-start">
             <h1 className="text-4xl inline" style={{ fontFamily: "work sans" }}>
               <h1 className="text-4xl text-[#F9995D] inline">Boosten&nbsp;</h1>
               Academy
             </h1>
             <p className="text-lg">The academy of science</p>
           </div>
-          <div className="leftBottom flex pb-5">
+          <div className="leftBottom flex pb-5 items-center lg:items-start justify-center lg:justify-start w-full py-5 lg:py-0">
             <a
               href="/"
               className="transition-all delay-75 duration-700 ease-in-out footerIcon mr-3 "
@@ -52,18 +52,35 @@ const Footer = () => {
           </div>
         </div>
         <div className="right lg:mr-5">
-          <div className="rightHeader flex flex-col">
-            <h1 className="text-white pb-5 text-xl">Newsletter :</h1>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Your Email Here"
-                required
-                className="md:w-[28vw] outline-0 px-4 py-1 rounded-sm border-2 text-black z-10"
-              />
-              <div className="relative right-2 z-0">
-                <Button label="Subscribe" />
+          <div className="rightHeader flex flex-col lg:justify-between h-full items-center lg:items-start">
+            <div>
+              <h1 className="text-white pb-5 text-xl">Newsletter :</h1>
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="Your Email Here"
+                  required
+                  className="md:w-[28vw] outline-0 px-4 py-1 rounded-sm border-2 text-black z-10"
+                />
+                <div className="relative right-2 z-0">
+                  <Button label="Subscribe" />
+                </div>
               </div>
+            </div>
+            <div className="py-5 lg:py-0">
+              <p className="text-[#628dc5]">
+                Address:{" "}
+                <span className="text-white pl-3">
+                  6391 Elgin St. Celina, Delaware 10299
+                </span>
+              </p>
+              <p className="text-[#628dc5]">
+                Phone: <span className="text-white pl-3">+92 333 8384071</span>
+              </p>
+              <p className="text-[#628dc5]">
+                Mail:{" "}
+                <span className="text-white pl-3">ghiyasanwar@gmail.com</span>
+              </p>
             </div>
           </div>
         </div>

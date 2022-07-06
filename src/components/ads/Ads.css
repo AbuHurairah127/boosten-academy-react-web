@@ -6,7 +6,8 @@
     ),
     url(./../../assets/adsBg.jpg);
   background-attachment: fixed;
-  background-size: 100% 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
   object-fit: cover;
 }
 .ads-text {
