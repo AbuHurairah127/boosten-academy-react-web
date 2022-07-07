@@ -6,6 +6,7 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import Button from "../button/Button";
+import { HashLink } from "react-router-hash-link";
 
 const Bottom = () => {
   return (
@@ -13,10 +14,17 @@ const Bottom = () => {
       <div className="w-full flex justify-between flex-wrap flex-col items-center lg:flex-row lg:items-start">
         <div className="left flex flex-col justify-between ml-5 lg:min-h-[35vh] lg:w-1/2">
           <div className="leftHeader flex flex-col items-center lg:items-start">
-            <h1 className="text-4xl inline" style={{ fontFamily: "work sans" }}>
-              <h1 className="text-4xl text-[#F9995D] inline">Boosten&nbsp;</h1>
-              Academy
-            </h1>
+            <HashLink smooth to="/#top">
+              <h1
+                className="text-4xl inline"
+                style={{ fontFamily: "work sans" }}
+              >
+                <span className="text-4xl text-[#F9995D] inline">
+                  Boosten&nbsp;
+                </span>
+                Academy
+              </h1>
+            </HashLink>
             <p className="text-lg">The academy of science</p>
           </div>
           <div className="leftBottom flex pb-5 items-center lg:items-start justify-center lg:justify-start w-full py-5 lg:py-0">

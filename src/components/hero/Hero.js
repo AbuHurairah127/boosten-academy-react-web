@@ -3,8 +3,13 @@ import video from "./../../assets/video.mp4";
 import Typewriter from "typewriter-effect";
 import Button from "../button/Button";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux/es/exports";
 
 const Hero = () => {
+  const isUserLoggined = useSelector(
+    (store) => store.authReducer.isUserLoggined
+  );
+  console.log(isUserLoggined);
   return (
     <div
       id="hero"
@@ -50,9 +55,15 @@ const Hero = () => {
         />
       </div>
       <div className="mt-8">
-        <Link to="/login">
-          <Button label="Login" />
-        </Link>
+        {isUserLoggined ? (
+          <Link to="/result">
+            <Button label="See Result" />
+          </Link>
+        ) : (
+          <Link to="/login">
+            <Button label="Login" />
+          </Link>
+        )}
       </div>
     </div>
   );

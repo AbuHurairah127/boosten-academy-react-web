@@ -37,7 +37,7 @@ const ContactForm = () => {
             id="class"
             className="md:w-[28vw] outline-0 px-4 py-2 rounded-sm border-2"
           >
-            <option value="none" disabled>
+            <option value="none" disabled selected>
               Select Class (optional)
             </option>
             <option value="9th">9th</option>

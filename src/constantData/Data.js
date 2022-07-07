@@ -22,4 +22,14 @@ export const classes = [
     subjects: ["Pre-Medical", "Pre-Engineering", "ICS"],
   },
 ];
-export const classesTitle = ["Matric", "Intermediate"];
+// marks table data
+export const marks = [
+  { sub: "English", testNo: 1, marks: 20 },
+  { sub: "Physics", testNo: 1, marks: 29 },
+  { sub: "Chemistry", testNo: 1, marks: 28 },
+  { sub: "Mathematics", testNo: 1, marks: 30 },
+  { sub: "Urdu", testNo: 1, marks: 24 },
+  { sub: "IS", testNo: 1, marks: 30 },
+  { sub: "PS", testNo: 1, marks: 30 },
+  { sub: "Computer", testNo: 1, marks: 30 },
+];

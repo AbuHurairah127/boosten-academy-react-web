@@ -1,19 +1,20 @@
 import React from "react";
-import Footer from "../../components/footer/Footer";
-import Navbar from "../../components/navbar/Navbar";
 import Button from "../../components/button/Button";
-
+import { useDispatch } from "react-redux";
+import { userLogin } from "./../../store/actions/authActions";
+import { Link } from "react-router-dom";
 const Login = () => {
+  const dispatch = useDispatch();
+  const loginUser = () => {
+    dispatch(userLogin());
+  };
   return (
     <div
-      className="max-w-screen min-h-[100vh] flex flex-col justify-between"
+      className="max-w-screen flex flex-col justify-center h-[80vh]"
       style={{
         fontFamily: "work sans",
       }}
     >
-      <div className="headerContainer">
-        <Navbar />
-      </div>
       <div className="mx-auto">
         <div
           className="loginForm w-[80vw] flex flex-col items-center justify-evenly min-h-[60vh]"
@@ -35,12 +36,11 @@ const Login = () => {
             />
           </div>
           <div className="">
-            <Button label="Login" textCol="black" />
+            <Link to="/">
+              <Button label="Login" textCol="black" event={loginUser} />
+            </Link>
           </div>
         </div>
-      </div>
-      <div className="footerContainer">
-        <Footer />
       </div>
     </div>
   );

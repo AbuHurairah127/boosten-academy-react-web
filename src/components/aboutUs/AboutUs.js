@@ -1,18 +1,11 @@
 import React from "react";
 import Button from "./../button/Button";
 import companyCEO from "./../../assets/companyCEO.png";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
     <div className="max-w-screen min-h-[600px] xl:h-[945px]" id="aboutUs">
-      <h1
-        className="text-center text-4xl font-semibold p-5"
-        style={{
-          fontFamily: "work sans",
-        }}
-      >
-        About Us
-      </h1>
       <div className="flex items-center py-8 md:p-10 lg:px-20 lg:py-12 xl:p-24">
         <img
           src={companyCEO}
@@ -50,9 +43,7 @@ const AboutUs = () => {
             veritatis omnis consequuntur adipisci obcaecati natus ducimus, a
             dolores nostrum itaque, amet ratione quis. Rem, magnam?
           </p>
-          <div className="mx-5 my-10">
-            <Button label="More About Us" />
-          </div>
+          <div className="mx-5 my-10"></div>
         </div>
       </div>
     </div>
