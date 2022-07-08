@@ -3,6 +3,8 @@ import Button from "../../components/button/Button";
 import { useDispatch } from "react-redux";
 import { userLogin } from "./../../store/actions/authActions";
 import { Link } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 const Login = () => {
   const dispatch = useDispatch();
   const loginUser = () => {
@@ -10,11 +12,14 @@ const Login = () => {
   };
   return (
     <div
-      className="max-w-screen flex flex-col justify-center h-[80vh]"
+      className="max-w-screen flex flex-col justify-between h-[100vh]"
       style={{
         fontFamily: "work sans",
       }}
     >
+      <div className="navbarContainer">
+        <Navbar />
+      </div>
       <div className="mx-auto">
         <div
           className="loginForm w-[80vw] flex flex-col items-center justify-evenly min-h-[60vh]"
@@ -41,6 +46,9 @@ const Login = () => {
             </Link>
           </div>
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

@@ -13,7 +13,6 @@ const Navbar = () => {
   const isUserLoggined = useSelector(
     (store) => store.authReducer.isUserLoggined
   );
-  console.log(isUserLoggined);
   const [clicked, setClicked] = useState(false);
   const logoutUser = () => {
     dispatch(userLogout());
@@ -52,7 +51,6 @@ const Navbar = () => {
             <button
               onClick={() => {
                 setClicked(!clicked);
-                console.log(clicked);
               }}
             >
               <Humburger color="white" />

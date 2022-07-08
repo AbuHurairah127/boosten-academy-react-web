@@ -9,7 +9,7 @@ const Hero = () => {
   const isUserLoggined = useSelector(
     (store) => store.authReducer.isUserLoggined
   );
-  console.log(isUserLoggined);
+
   return (
     <div
       id="hero"

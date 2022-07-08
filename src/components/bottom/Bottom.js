@@ -16,12 +16,12 @@ const Bottom = () => {
           <div className="leftHeader flex flex-col items-center lg:items-start pt-5 lg:pt-0">
             <HashLink smooth to="/#top">
               <h1
-                className="text-4xl inline"
+                className="text-4xl sm:inline"
                 style={{ fontFamily: "work sans" }}
               >
-                <span className="text-4xl text-[#F9995D] inline">
+                <h1 className="text-4xl text-[#F9995D] sm:inline">
                   Boosten&nbsp;
-                </span>
+                </h1>
                 Academy
               </h1>
             </HashLink>
@@ -58,7 +58,7 @@ const Bottom = () => {
           </div>
         </div>
         <div className="right lg:mr-5">
-          <div className="rightHeader flex flex-col lg:justify-between h-full items-center lg:items-start">
+          <div className="rightHeader flex flex-col  lg:justify-between h-full items-center lg:items-start">
             <div>
               <h1 className="text-white pb-5 text-xl">Newsletter :</h1>
               <div className="flex flex-col lg:flex-row items-center lg:items-start">
@@ -66,7 +66,7 @@ const Bottom = () => {
                   type="email"
                   placeholder="Your Email Here"
                   required
-                  className="md:w-[60vw] outline-0 px-4 py-1 rounded-sm border-2 text-black z-10"
+                  className="md:w-[60vw] lg:w-auto outline-0 px-4 py-1.5 rounded-sm border-2 text-black z-10"
                 />
                 <div className="lg:relative lg:right-2 z-0">
                   <Button label="Subscribe" />
@@ -91,7 +91,6 @@ const Bottom = () => {
           </div>
         </div>
       </div>
-      <div></div>
     </div>
   );
 };
