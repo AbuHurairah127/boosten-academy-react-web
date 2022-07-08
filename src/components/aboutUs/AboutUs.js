@@ -1,11 +1,9 @@
 import React from "react";
-import Button from "./../button/Button";
 import companyCEO from "./../../assets/companyCEO.png";
-import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-screen min-h-[600px] xl:h-[945px]" id="aboutUs">
+    <div className="max-w-screen lg:min-h-[600px] xl:h-[945px]" id="aboutUs">
       <div className="flex items-center py-8 md:p-10 lg:px-20 lg:py-12 xl:p-24">
         <img
           src={companyCEO}

@@ -4,7 +4,7 @@ import { HashLink } from "react-router-hash-link";
 const Footer = () => {
   const { year } = UseFooter();
   return (
-    <div className="w-full text-center h-16 text-[#628dc5] bg-[#1d3557] py-1">
+    <div className="w-full text-center min-h-16 text-[#628dc5] bg-[#1d3557] py-1">
       <span className=" px-2">
         &copy; {year} All rights reserved by{" "}
         <HashLink smooth to="/#top">

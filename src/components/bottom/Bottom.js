@@ -13,7 +13,7 @@ const Bottom = () => {
     <div className="max-w-screen bg-[#1d3557] text-white flex flex-col justify-around  lg:min-h-[50vh] flex-wrap border-b-2 border-b-[#fff]">
       <div className="w-full flex justify-between flex-wrap flex-col items-center lg:flex-row lg:items-start">
         <div className="left flex flex-col justify-between ml-5 lg:min-h-[35vh] lg:w-1/2">
-          <div className="leftHeader flex flex-col items-center lg:items-start">
+          <div className="leftHeader flex flex-col items-center lg:items-start pt-5 lg:pt-0">
             <HashLink smooth to="/#top">
               <h1
                 className="text-4xl inline"
@@ -61,14 +61,14 @@ const Bottom = () => {
           <div className="rightHeader flex flex-col lg:justify-between h-full items-center lg:items-start">
             <div>
               <h1 className="text-white pb-5 text-xl">Newsletter :</h1>
-              <div className="flex">
+              <div className="flex flex-col lg:flex-row items-center lg:items-start">
                 <input
                   type="email"
                   placeholder="Your Email Here"
                   required
-                  className="md:w-[28vw] outline-0 px-4 py-1 rounded-sm border-2 text-black z-10"
+                  className="md:w-[60vw] outline-0 px-4 py-1 rounded-sm border-2 text-black z-10"
                 />
-                <div className="relative right-2 z-0">
+                <div className="lg:relative lg:right-2 z-0">
                   <Button label="Subscribe" />
                 </div>
               </div>
