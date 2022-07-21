@@ -9,14 +9,14 @@ const Ads = () => {
           Free consultation with exceptional quality.
         </h1>
 
-        <p className="text-center md:text-left ads-text">
+        <span className="text-center md:text-left ads-text">
           Foreign Scholarships <br />
           CSS and PMS exams Preparation
           <br />
           <br />
           <hr />
           <br /> <p className="text-xl"> Just one text away</p>
-        </p>
+        </span>
       </div>
       <div className="btn-container">
         <Button label="Get Your Consultation" />

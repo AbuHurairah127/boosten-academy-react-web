@@ -1,6 +1,6 @@
 import { LOGIN, LOGOUT } from "./../types/constants";
 let initialState = {
-  isUserLoggined: false,
+  isAuthenticated: false,
 };
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -8,14 +8,14 @@ const authReducer = (state = initialState, action) => {
       let isUserLogginedNow = true;
       return {
         ...state,
-        isUserLoggined: isUserLogginedNow,
+        isAuthenticated: isUserLogginedNow,
       };
     }
     case LOGOUT: {
       let isUserLogginedNow = false;
       return {
         ...state,
-        isUserLoggined: isUserLogginedNow,
+        isAuthenticated: isUserLogginedNow,
       };
     }
     default:

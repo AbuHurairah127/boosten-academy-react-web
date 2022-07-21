@@ -7,7 +7,7 @@ import { useSelector } from "react-redux/es/exports";
 
 const Hero = () => {
   const isUserLoggined = useSelector(
-    (store) => store.authReducer.isUserLoggined
+    (store) => store.authReducer.isAuthenticated
   );
 
   return (

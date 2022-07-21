@@ -11,7 +11,7 @@ import { userLogout } from "./../../store/actions/authActions";
 const Navbar = () => {
   const dispatch = useDispatch();
   const isUserLoggined = useSelector(
-    (store) => store.authReducer.isUserLoggined
+    (store) => store.authReducer.isAuthenticated
   );
   const [clicked, setClicked] = useState(false);
   const logoutUser = () => {

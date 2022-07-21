@@ -15,15 +15,15 @@ const Bottom = () => {
         <div className="left flex flex-col justify-between ml-5 lg:min-h-[35vh] lg:w-1/2">
           <div className="leftHeader flex flex-col items-center lg:items-start pt-5 lg:pt-0">
             <HashLink smooth to="/#top">
-              <h1
-                className="text-4xl sm:inline"
+              <span
+                className="text-4xl block sm:inline"
                 style={{ fontFamily: "work sans" }}
               >
-                <h1 className="text-4xl text-[#F9995D] sm:inline">
+                <span className="text-4xl text-[#F9995D] block sm:inline">
                   Boosten&nbsp;
-                </h1>
+                </span>
                 Academy
-              </h1>
+              </span>
             </HashLink>
             <p className="text-lg">The academy of science</p>
           </div>
