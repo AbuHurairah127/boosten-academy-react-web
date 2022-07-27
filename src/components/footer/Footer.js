@@ -8,7 +8,7 @@ const Footer = () => {
       <span className=" px-2">
         &copy; {year} All rights reserved by{" "}
         <HashLink smooth to="/#top">
-          <span className="text-[#F9995D]"> Boosten Academy</span>
+          <span className="text-[#F9995D]">Gulberg Boston Academy</span>
         </HashLink>
       </span>
       <p>

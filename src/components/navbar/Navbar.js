@@ -27,7 +27,8 @@ const Navbar = () => {
           }}
         >
           <Link to="/">
-            <span className="text-[#F9995D]">Boosten</span> Academy
+            <span className="text-[#F9995D]">Gulberg</span>{" "}
+            <span className="text-[#F9995D]">Boston</span> Acadmey
           </Link>
         </div>
         <div className="right w-fit">

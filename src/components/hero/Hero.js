@@ -1,10 +1,9 @@
 import React from "react";
-import video from "./../../assets/video.mp4";
 import Typewriter from "typewriter-effect";
 import Button from "../button/Button";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
-
+import hero from "./../../assets/hero.jpg";
 const Hero = () => {
   const isUserLoggined = useSelector(
     (store) => store.authReducer.isAuthenticated
@@ -13,30 +12,27 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="w-full h-[100vh] flex flex-col items-center justify-center"
-      style={{ background: "rgba(29, 53, 87,0.85)", objectFit: "contain" }}
+      className="w-full h-[70vh] flex flex-col items-center justify-center bg-contain bg-center"
+      style={{
+        background: `linear-gradient(0deg,rgba(2, 48, 71, 0.95),rgba(0, 180, 216, 0.15)),url(${hero})`,
+        objectFit: "contain",
+        backgroundAttachment: "fixed",
+        // backgroundSize: "100%",
+        backgroundRepeat: "no-repeat",
+      }}
     >
-      <video
-        loop
-        muted
-        autoPlay
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          position: "absolute",
-          zIndex: -1,
-        }}
-      >
-        <source src={video} type="video/mp4" />
-      </video>
-
       <div className="flex flex-wrap justify-center -items-center w-[80vw]">
         <h1
           className="text-6xl text-[#F9995D]"
           style={{ fontFamily: "work sans" }}
         >
-          Boosten&nbsp;
+          Gulberg&nbsp;
+        </h1>
+        <h1
+          className="text-6xl text-[#F9995D]"
+          style={{ fontFamily: "work sans" }}
+        >
+          Boston&nbsp;
         </h1>
         <h1 className="text-6xl text-white" style={{ fontFamily: "work sans" }}>
           Academy
@@ -46,8 +42,10 @@ const Hero = () => {
         <Typewriter
           options={{
             strings: [
-              "The Academy of Science",
+              "The Academy of Science and Commerce",
               "Leading Students Towards Excellence",
+              "Under the Supervision of the Teachers from Renowned Universities,Colleges & Schools",
+              "An Excellent Test System for all Classes",
             ],
             autoStart: true,
             loop: true,
