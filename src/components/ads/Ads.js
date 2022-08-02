@@ -11,16 +11,17 @@ const Ads = () => {
 
         <span className="text-center md:text-left ads-text">
           Foreign Scholarships <br />
-          CSS and PMS exams Preparation
+          PSF(Pakistan Science Foundation) Scholarships
           <br />
           <br />
           <hr />
-          <br /> <p className="text-xl"> Just one text away</p>
+          <br />
+          <p className="text-2xl"> Just one text away</p>
         </span>
       </div>
-      <div className="btn-container">
+      <a href="https://wa.me/923338384071" className="btn-container">
         <Button label="Get Your Consultation" />
-      </div>
+      </a>
     </div>
   );
 };

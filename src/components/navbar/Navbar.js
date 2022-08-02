@@ -71,7 +71,7 @@ const Navbar = () => {
           <div className="w-screen h-max flex justify-center items-center bg-[#1D3557] ">
             <Link to="/">
               {" "}
-              <Button label="logout" event={logoutUser} />
+              <Button label="Logout" event={logoutUser} />
             </Link>{" "}
           </div>
         )}

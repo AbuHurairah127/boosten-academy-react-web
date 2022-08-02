@@ -10,3 +10,7 @@ export const userLogout = () => {
     type: LOGOUT,
   };
 };
+export const fetchUser = (setPreLoader) => async (dispatch) => {
+  setPreLoader(true);
+  setTimeout(() => setPreLoader(false), 10000);
+};

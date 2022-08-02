@@ -12,13 +12,13 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="w-full h-[70vh] flex flex-col items-center justify-center bg-contain bg-center"
+      className="w-full h-[70vh] flex flex-col items-center justify-center md:bg-cover"
       style={{
-        background: `linear-gradient(0deg,rgba(2, 48, 71, 0.95),rgba(0, 180, 216, 0.15)),url(${hero})`,
+        backgroundImage: `linear-gradient(0deg,rgba(2, 48, 71, 0.95),rgba(0, 180, 216, 0.15)),url(${hero})`,
         objectFit: "contain",
         backgroundAttachment: "fixed",
-        // backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
     >
       <div className="flex flex-wrap justify-center -items-center w-[80vw]">
@@ -38,7 +38,7 @@ const Hero = () => {
           Academy
         </h1>
       </div>
-      <div className="text-3xl text-white pt-5 text-center w-[80vw]">
+      <div className="text-3xl text-white pt-5 hidden md:block text-center w-[80vw]">
         <Typewriter
           options={{
             strings: [

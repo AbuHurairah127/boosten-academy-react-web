@@ -10,6 +10,8 @@ const ContactForm = () => {
       <div className="contactFormHeader w-full pt-8">
         <h1 className="text-center text-4xl font-bold">
           What we can do for you?
+          <br />
+          (Any Suggestions)
         </h1>
       </div>
       <div className="w-full flex flex-col items-center">
@@ -37,13 +39,11 @@ const ContactForm = () => {
             id="class"
             className="md:w-[28vw] outline-0 px-4 py-2 rounded-sm border-2"
           >
-            <option value="none" disabled defaultValue>
-              Select Class (optional)
-            </option>
+            <option value="">Select Class (optional)</option>
             <option value="9th">9th</option>
             <option value="10th">10th</option>
-            <option value="1st year">FSc (1st year)</option>
-            <option value="2nd year">Fsc (2nd year)</option>
+            <option value="1st year">1st year</option>
+            <option value="2nd year">2nd year</option>
           </select>
           <input
             type="tel"
