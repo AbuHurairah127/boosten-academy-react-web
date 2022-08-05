@@ -1,15 +1,21 @@
 import React from "react";
 import Button from "../../components/button/Button";
-import { useDispatch } from "react-redux";
-import { userLogin } from "./../../store/actions/authActions";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import useLogin from "./useLogin";
+
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+
 const Login = () => {
-  const dispatch = useDispatch();
-  const loginUser = () => {
-    dispatch(userLogin());
-  };
+  const {
+    buttonLoader,
+    loginData,
+    onChangeHandler,
+    onLoginHandler,
+    setIsPasswordAppear,
+    isPasswordAppear,
+  } = useLogin();
   return (
     <div
       className="max-w-screen flex flex-col justify-between h-[100vh]"
@@ -28,22 +34,74 @@ const Login = () => {
           <h1 className="text-4xl font-bold">Login Form</h1>
           <div className=" flex flex-col space-y-5 justify-center">
             <input
-              type="email"
-              placeholder="Enter Your Email"
+              type="number"
+              placeholder="Enter Your Roll No. e.g 22100"
               className="border-2 border-gray-300 px-3 py-1 w-[60vw] rounded outline-0"
+              name="userName"
+              value={loginData.userName}
+              onChange={(e) => {
+                onChangeHandler(e);
+              }}
               required
             />
-            <input
-              type="password"
-              placeholder="Enter Your password"
-              className="border-2 border-gray-300 px-3 py-1 w-[60vw] rounded outline-0"
-              required
-            />
+            {isPasswordAppear ? (
+              <div className="flex items-center">
+                <input
+                  type="text"
+                  placeholder="Enter Your password"
+                  className="border-2 border-gray-300 px-3 py-1 w-[60vw] rounded outline-0"
+                  name="password"
+                  value={loginData.password}
+                  onChange={(e) => {
+                    onChangeHandler(e);
+                  }}
+                  required
+                />
+                <AiFillEyeInvisible
+                  size={20}
+                  style={{
+                    marginLeft: 10,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    setIsPasswordAppear(!isPasswordAppear);
+                  }}
+                />
+              </div>
+            ) : (
+              <div className="flex items-center">
+                <input
+                  type="password"
+                  placeholder="Enter Your password"
+                  className="border-2 border-gray-300 px-3 py-1 w-[60vw] rounded outline-0"
+                  name="password"
+                  value={loginData.password}
+                  onChange={(e) => {
+                    onChangeHandler(e);
+                  }}
+                  required
+                />
+                <AiFillEye
+                  size={20}
+                  style={{
+                    marginLeft: 10,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    setIsPasswordAppear(!isPasswordAppear);
+                  }}
+                />
+              </div>
+            )}
           </div>
           <div className="">
-            <Link to="/">
-              <Button label="Login" textCol="black" event={loginUser} />
-            </Link>
+            <Button
+              label="Login"
+              textCol="black"
+              event={(e) => {
+                onLoginHandler(e);
+              }}
+            />
           </div>
         </div>
       </div>

@@ -12,5 +12,5 @@ export const userLogout = () => {
 };
 export const fetchUser = (setPreLoader) => async (dispatch) => {
   setPreLoader(true);
-  setTimeout(() => setPreLoader(false), 10000);
+  setTimeout(() => setPreLoader(false), 2500);
 };

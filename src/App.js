@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Routing from "./routing/Routing";
 import { useDispatch } from "react-redux";
 import FullScreenLoader from "./components/fullScreenLoader/FullScreenLoader";
+
 import { fetchUser } from "./store/actions/authActions";
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ function App() {
           <FullScreenLoader />
         </div>
       ) : (
-        <Routing />
+        <>
+          <Routing />
+        </>
       )}
     </div>
   );
