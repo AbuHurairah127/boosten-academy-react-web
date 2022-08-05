@@ -1,9 +1,14 @@
 import { LOGIN, LOGOUT } from "../types/constants";
 
-export const userLogin = () => {
-  return {
-    type: LOGIN,
-  };
+export const userLogin = (setButtonLoader) => {
+  try {
+    setButtonLoader(true);
+  } catch (error) {
+  } finally {
+    setTimeout(() => {
+      setButtonLoader(false);
+    }, 2500);
+  }
 };
 export const userLogout = () => {
   return {

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { userLogin } from "../../store/actions/authActions";
 const useLogin = () => {
-  const [buttonLoader, setButtonLoader] = useState(false);
+  const [buttonLoading, setButtonLoading] = useState(false);
   const dispatch = useDispatch();
   const [isPasswordAppear, setIsPasswordAppear] = useState(false);
   const [loginData, setLoginData] = useState({
@@ -15,10 +16,12 @@ const useLogin = () => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
     if (loginData.userName === "" && loginData.password === "") {
       alert("Please fill all the input fields properly");
+    } else {
+      dispatch(userLogin(setButtonLoading));
     }
   };
   return {
-    buttonLoader,
+    buttonLoading,
     loginData,
     onChangeHandler,
     onLoginHandler,

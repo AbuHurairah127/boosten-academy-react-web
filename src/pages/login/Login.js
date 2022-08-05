@@ -1,15 +1,14 @@
 import React from "react";
 import Button from "../../components/button/Button";
-import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import useLogin from "./useLogin";
-
+import ButtonLoader from "./../../components/buttonLoader/ButtonLoader";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 const Login = () => {
   const {
-    buttonLoader,
+    buttonLoading,
     loginData,
     onChangeHandler,
     onLoginHandler,
@@ -96,11 +95,12 @@ const Login = () => {
           </div>
           <div className="">
             <Button
-              label="Login"
+              label={buttonLoading ? <ButtonLoader color="#f5843e" /> : "Login"}
               textCol="black"
               event={(e) => {
                 onLoginHandler(e);
               }}
+              disabled={buttonLoading}
             />
           </div>
         </div>
