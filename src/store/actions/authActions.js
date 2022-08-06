@@ -1,6 +1,6 @@
 import { LOGIN, LOGOUT } from "../types/constants";
 import { auth, db } from "./../../config/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, updatePassword } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore/lite";
 export const userLogin = (data, setButtonLoader) => async (dispatch) => {
   try {
@@ -38,4 +38,18 @@ export const userLogout = () => {
 export const fetchUser = (setPreLoader) => async (dispatch) => {
   setPreLoader(true);
   setTimeout(() => setPreLoader(false), 2500);
+};
+export const passwordUpdate = (data, setIsLoading) => async (dispatch) => {
+  try {
+    setIsLoading(true);
+    const user = auth.currentUser;
+    await updatePassword(user, data.newPassword);
+    window.notify("Password updated successfully", "success");
+  } catch (error) {
+    window.notify(error.message, "error");
+  } finally {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+  }
 };

@@ -5,12 +5,12 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Result from "../pages/result/Result";
 import PrivateRoutes from "./PrivateRoutes";
+import ChangePassword from "../pages/changePassword/ChangePassword";
 
 const Routing = () => {
   const isUserLoggined = useSelector(
     (store) => store.authReducer.isAuthenticated
   );
-  console.log(isUserLoggined);
   return (
     <BrowserRouter>
       <main>
@@ -23,6 +23,10 @@ const Routing = () => {
           <Route
             path="/result"
             element={<PrivateRoutes Component={Result} />}
+          />
+          <Route
+            path="/change-password"
+            element={<PrivateRoutes Component={ChangePassword} />}
           />
         </Routes>
       </main>
