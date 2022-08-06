@@ -1,12 +1,33 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { marks } from "./../../constantData/Data";
 
 const ResultTable = () => {
+  const user = useSelector((store) => store.authReducer.cUser);
   return (
-    <div className="w-screen min-h-96 flex flex-col items-center justify-evenly overflow-auto my-12">
+    <div className="w-screen min-h-96 flex flex-col items-center justify-evenly overflow-auto">
+      <div className="w-[90vw] text-right">
+        <button className="absolute top-16 right-5 hover:underline hover:underline-offset-2">
+          Change Password?
+        </button>
+      </div>
+      <div className="w-[90vw] text-center">
+        <span className="font-bold text-lg block md:inline ">
+          Name: <span className="font-normal ">{user.name}</span>
+        </span>
+        <span className="font-bold text-lg md:pl-4 block md:inline ">
+          Father's Name: <span className="font-normal ">{user.fatherName}</span>
+        </span>
+        <span className="font-bold text-lg md:pl-4 block md:inline">
+          Roll No.: <span className="font-normal ">{user.rollNo}</span>
+        </span>
+        <span className="font-bold text-lg md:pl-4 block md:inline">
+          Class: <span className="font-normal ">{user.class}</span>
+        </span>
+      </div>
       <h1 className="text-4xl font-bold py-5">Result</h1>
       {/* Tablet and big screen result */}
-      <table className="hidden md:table md:w-[90vw] ">
+      <table className="hidden md:table md:w-[90vw]">
         <thead>
           <tr className="bg-gray-800">
             <td
@@ -29,26 +50,32 @@ const ResultTable = () => {
         <tbody className="w-full">
           <tr className="py-2 bg-gray-200 border-y-2 border-gray-900">
             <td className="text-center py-2">Test No. {1}</td>
-            {marks.map((item) => (
-              <td className="text-center py-2">{item.marks}</td>
+            {marks.map((item, i) => (
+              <td className="text-center py-2" key={i}>
+                {item.marks}
+              </td>
             ))}
           </tr>
           <tr>
             <td className="text-center py-2">Test No. {2}</td>
-            {marks.map((item) => (
-              <td className="text-center py-2">{item.marks}</td>
+            {marks.map((item, i) => (
+              <td className="text-center py-2" key={i}>
+                {item.marks}
+              </td>
             ))}
           </tr>
           <tr className="py-2 bg-gray-200 border-y-2 border-gray-900">
             <td className="text-center py-2">Test No. {3}</td>
-            {marks.map((item) => (
-              <td className="text-center py-2">{item.marks}</td>
+            {marks.map((item, i) => (
+              <td className="text-center py-2" key={i}>
+                {item.marks}
+              </td>
             ))}
           </tr>
         </tbody>
       </table>
       {/* mobile screen result */}
-      <div className="grid grid-cols-1 gap-4 md:hidden w-full overflow-auto">
+      <div className="grid grid-cols-1 gap-4 md:hidden w-full overflow-auto ">
         <div className=" m-2 p-3 rounded-2xl shadow-lg">
           <div className="resultCardHeader text-center text-xl bg-gray-300">
             <p>Test no. 1</p>

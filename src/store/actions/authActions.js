@@ -1,6 +1,7 @@
 import { LOGIN, LOGOUT } from "../types/constants";
 import { auth, db } from "./../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore/lite";
 export const userLogin = (data, setButtonLoader) => async (dispatch) => {
   try {
     setButtonLoader(true);
@@ -10,9 +11,15 @@ export const userLogin = (data, setButtonLoader) => async (dispatch) => {
       data.userName,
       data.password
     );
-    let displayName = userCredentials.user.displayName;
+    let user = auth.currentUser;
+    const docSnap = await getDoc(doc(db, "students", user.uid));
+    let userData = docSnap.data();
+    dispatch({
+      type: LOGIN,
+      payload: userData,
+    });
     window.notify(
-      `"${displayName}" has been successfully logged in. `,
+      `"${userData.name}" has been successfully logged in. `,
       "success"
     );
   } catch (error) {
