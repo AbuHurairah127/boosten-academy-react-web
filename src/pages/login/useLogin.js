@@ -14,10 +14,10 @@ const useLogin = () => {
   };
   const onLoginHandler = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
-    if (loginData.userName === "" && loginData.password === "") {
-      alert("Please fill all the input fields properly");
+    if (loginData.userName === "" || loginData.password === "") {
+      window.notify("Please fill all the input fields properly!", "error");
     } else {
-      dispatch(userLogin(setButtonLoading));
+      dispatch(userLogin(loginData, setButtonLoading));
     }
   };
   return {

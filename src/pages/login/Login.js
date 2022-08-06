@@ -95,7 +95,7 @@ const Login = () => {
           </div>
           <div className="">
             <Button
-              label={buttonLoading ? <ButtonLoader color="#f5843e" /> : "Login"}
+              label={buttonLoading ? <ButtonLoader color="#DE5C0B" /> : "Login"}
               textCol="black"
               event={(e) => {
                 onLoginHandler(e);
