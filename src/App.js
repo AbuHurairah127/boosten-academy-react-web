@@ -5,12 +5,12 @@ import Routing from "./routing/Routing";
 import { useDispatch } from "react-redux";
 import FullScreenLoader from "./components/fullScreenLoader/FullScreenLoader";
 
-import { fetchUser } from "./store/actions/authActions";
+import { fetchCurrentUser } from "./store/actions/authActions";
 function App() {
   const dispatch = useDispatch();
   const [preLoader, setPreLoader] = useState(false);
   useEffect(() => {
-    dispatch(fetchUser(setPreLoader));
+    dispatch(fetchCurrentUser(setPreLoader));
   }, [dispatch]);
 
   return (
