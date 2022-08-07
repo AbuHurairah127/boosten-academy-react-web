@@ -7,16 +7,16 @@ import { Link } from "react-router-dom";
 import Button from "../button/Button";
 import { useSelector } from "react-redux/es/exports";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { userLogout } from "./../../store/actions/authActions";
+import useNavbar from "./useNavbar";
+import ButtonLoader from "../buttonLoader/ButtonLoader";
 const Navbar = () => {
+  const { isLoggingOut, onLogoutHandler } = useNavbar();
   const dispatch = useDispatch();
   const isUserLoggined = useSelector(
     (store) => store.authReducer.isAuthenticated
   );
   const [clicked, setClicked] = useState(false);
-  const logoutUser = () => {
-    dispatch(userLogout());
-  };
+
   return (
     <div className="max-w-screen flex flex-col h-16 bg-[#1d3557] z-50">
       <div className="flex w-full justify-between items-center h-full px-3 md:px-6 lg:px-8 xl:px-12">
@@ -43,7 +43,7 @@ const Navbar = () => {
             {isUserLoggined && (
               <Link to="/">
                 {" "}
-                <Button label="logout" event={logoutUser} />
+                <Button label="logout" event={onLogoutHandler} />
               </Link>
             )}
           </div>
@@ -71,7 +71,12 @@ const Navbar = () => {
           <div className="w-screen h-max flex justify-center items-center bg-[#1D3557] ">
             <Link to="/">
               {" "}
-              <Button label="Logout" event={logoutUser} />
+              <Button
+                label={
+                  isLoggingOut ? <ButtonLoader color="#DE5C0B" /> : "Logout"
+                }
+                event={onLogoutHandler}
+              />
             </Link>{" "}
           </div>
         )}

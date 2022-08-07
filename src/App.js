@@ -8,7 +8,7 @@ import FullScreenLoader from "./components/fullScreenLoader/FullScreenLoader";
 import { fetchCurrentUser } from "./store/actions/authActions";
 function App() {
   const dispatch = useDispatch();
-  const [preLoader, setPreLoader] = useState(false);
+  const [preLoader, setPreLoader] = useState(true);
   useEffect(() => {
     dispatch(fetchCurrentUser(setPreLoader));
   }, [dispatch]);

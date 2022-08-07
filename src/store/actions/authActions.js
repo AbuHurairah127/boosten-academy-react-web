@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   updatePassword,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore/lite";
 export const userLogin = (data, setButtonLoader) => async (dispatch) => {
@@ -34,10 +35,19 @@ export const userLogin = (data, setButtonLoader) => async (dispatch) => {
     }, 2500);
   }
 };
-export const userLogout = () => {
-  return {
-    type: LOGOUT,
-  };
+export const userLogout = (setIsLoggingOut) => async (dispatch) => {
+  try {
+    setIsLoggingOut(true);
+    signOut(auth);
+    dispatch({
+      type: LOGOUT,
+    });
+  } catch (error) {
+    window.notify(error.message, "error");
+    console.log(error.message);
+  } finally {
+    // setIsLoggingOut(false);
+  }
 };
 export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
   try {
@@ -57,7 +67,9 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
   } catch (error) {
     window.notify(error.message, "error");
   } finally {
-    setPreLoader(false);
+    setTimeout(() => {
+      setPreLoader(false);
+    }, 1500);
   }
 };
 export const passwordUpdate = (data, setIsLoading) => async (dispatch) => {
