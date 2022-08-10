@@ -6,7 +6,14 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore/lite";
+import {
+  doc,
+  getDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore/lite";
 export const userLogin = (data, setButtonLoader) => async (dispatch) => {
   try {
     setButtonLoader(true);
@@ -51,17 +58,23 @@ export const userLogout = (setIsLoggingOut) => async (dispatch) => {
 };
 export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
   try {
-    setPreLoader(true);
-
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        // const uid = user.uid;
         const docSnap = await getDoc(doc(db, "students", user.uid));
-        let userData = docSnap.data();
+        const userData = docSnap.data();
+        console.log(userData);
+        const attendanceRef = collection(db, "attendance");
+        const q = query(attendanceRef, where("studentId", "==", userData.uid));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+        });
         dispatch({
           type: LOGIN,
           payload: userData,
         });
+        window.notify(`${userData.name} is already logged in.`);
       }
     });
   } catch (error) {
@@ -69,7 +82,7 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
   } finally {
     setTimeout(() => {
       setPreLoader(false);
-    }, 1500);
+    }, 7500);
   }
 };
 export const passwordUpdate = (data, setIsLoading) => async (dispatch) => {

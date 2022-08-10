@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { marks } from "./../../constantData/Data";
 
 const ResultTable = () => {
+  const isAuthenticated = useSelector(
+    (store) => store.authReducer.isAuthenticated
+  );
   const user = useSelector((store) => store.authReducer.cUser);
   return (
     <div className="w-screen min-h-96 flex flex-col items-center justify-evenly overflow-auto">
@@ -15,20 +18,24 @@ const ResultTable = () => {
           <span>Change Password?</span>
         </Link>
       </div>
-      <div className="w-[90vw] text-center">
-        <span className="font-bold text-lg block md:inline ">
-          Name: <span className="font-normal ">{user.name}</span>
-        </span>
-        <span className="font-bold text-lg md:pl-4 block md:inline ">
-          Father's Name: <span className="font-normal ">{user.fatherName}</span>
-        </span>
-        <span className="font-bold text-lg md:pl-4 block md:inline">
-          Roll No.: <span className="font-normal ">{user.rollNo}</span>
-        </span>
-        <span className="font-bold text-lg md:pl-4 block md:inline">
-          Class: <span className="font-normal ">{user.class}</span>
-        </span>
-      </div>
+      {isAuthenticated && (
+        <div className="w-[90vw] text-center">
+          <span className="font-bold text-lg block md:inline ">
+            Name: <span className="font-normal ">{user.name}</span>
+          </span>
+          <span className="font-bold text-lg md:pl-4 block md:inline ">
+            Father's Name:{" "}
+            <span className="font-normal ">{user.fatherName}</span>
+          </span>
+          <span className="font-bold text-lg md:pl-4 block md:inline">
+            Roll No.: <span className="font-normal ">{user.rollNo}</span>
+          </span>
+          <span className="font-bold text-lg md:pl-4 block md:inline">
+            Class: <span className="font-normal ">{user.class}</span>
+          </span>
+        </div>
+      )}
+
       <h1 className="text-4xl font-bold py-5">Result</h1>
       {/* Tablet and big screen result */}
       <table className="hidden md:table md:w-[90vw]">

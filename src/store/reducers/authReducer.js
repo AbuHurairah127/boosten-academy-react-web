@@ -19,6 +19,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: isUserLogginedNow,
+        cUser: {},
       };
     }
     default:
