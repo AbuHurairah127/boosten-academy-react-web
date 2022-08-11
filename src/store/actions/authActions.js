@@ -20,16 +20,12 @@ export const userLogin = (data, setButtonLoader) => async (dispatch) => {
     let currentStudent = {};
     setButtonLoader(true);
     data.userName = `${data.userName}@gulbergbostonacademy.web.app`;
-    const userCredentials = await signInWithEmailAndPassword(
-      auth,
-      data.userName,
-      data.password
-    );
+    await signInWithEmailAndPassword(auth, data.userName, data.password);
     let user = auth.currentUser;
     const docSnap = await getDoc(doc(db, "students", user.uid));
     let userData = docSnap.data();
     const attendanceRef = collection(db, "attendance");
-    const q = query(attendanceRef, where("studentId", "==", userData.uid));
+    const q = query(attendanceRef, where("studentId", "==", user.uid));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       attendanceArray.push(doc.data());
@@ -40,7 +36,7 @@ export const userLogin = (data, setButtonLoader) => async (dispatch) => {
     };
     dispatch({
       type: LOGIN,
-      payload: userData,
+      payload: currentStudent,
     });
     window.notify(
       `"${userData.name}" has been successfully logged in. `,
@@ -63,7 +59,6 @@ export const userLogout = (setIsLoggingOut) => async (dispatch) => {
     });
   } catch (error) {
     window.notify(error.message, "error");
-    console.log(error.message);
   } finally {
     // setIsLoggingOut(false);
   }
@@ -77,11 +72,7 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
         const docSnap = await getDoc(doc(db, "students", user.uid));
         const userData = docSnap.data();
         const attendanceRef = collection(db, "attendance");
-        const q = query(
-          attendanceRef,
-          where("studentId", "==", userData.uid),
-          orderBy("")
-        );
+        const q = query(attendanceRef, where("studentId", "==", userData.uid));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
           attendanceArray.push(doc.data());
@@ -90,7 +81,6 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
           studentData: userData,
           studentAttendance: attendanceArray,
         };
-        console.log(currentStudent);
         dispatch({
           type: LOGIN,
           payload: currentStudent,

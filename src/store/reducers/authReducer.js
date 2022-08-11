@@ -23,7 +23,6 @@ const authReducer = (state = initialState, action) => {
         totalNoOfDays++;
       });
       absents = totalNoOfDays - presents;
-      console.log(totalNoOfDays, presents, absents);
       return {
         ...state,
         isAuthenticated: isUserLogginedNow,

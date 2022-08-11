@@ -1,7 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   PieChart,
   ResponsiveContainer,
@@ -37,7 +35,7 @@ const Attendance = () => {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-      <div>
+      <div className="w-screen text-center">
         <span
           className={
             (presents / totalDays) * 100 > 49
@@ -47,12 +45,6 @@ const Attendance = () => {
         >
           {(presents / totalDays) * 100} <span>% Attendance</span>{" "}
         </span>
-        <Link
-          to="/attendance-details"
-          className="text-blue-600 underline underline-offset-2 pl-3"
-        >
-          Get Details
-        </Link>
       </div>
     </div>
   );
