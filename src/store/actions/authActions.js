@@ -16,6 +16,8 @@ import {
 } from "firebase/firestore/lite";
 export const userLogin = (data, setButtonLoader) => async (dispatch) => {
   try {
+    let attendanceArray = [];
+    let currentStudent = {};
     setButtonLoader(true);
     data.userName = `${data.userName}@gulbergbostonacademy.web.app`;
     const userCredentials = await signInWithEmailAndPassword(
@@ -26,6 +28,16 @@ export const userLogin = (data, setButtonLoader) => async (dispatch) => {
     let user = auth.currentUser;
     const docSnap = await getDoc(doc(db, "students", user.uid));
     let userData = docSnap.data();
+    const attendanceRef = collection(db, "attendance");
+    const q = query(attendanceRef, where("studentId", "==", userData.uid));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      attendanceArray.push(doc.data());
+    });
+    currentStudent = {
+      studentData: userData,
+      studentAttendance: attendanceArray,
+    };
     dispatch({
       type: LOGIN,
       payload: userData,
@@ -59,22 +71,26 @@ export const userLogout = (setIsLoggingOut) => async (dispatch) => {
 export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
   try {
     onAuthStateChanged(auth, async (user) => {
+      let attendanceArray = [];
+      let currentStudent = {};
       if (user) {
         const docSnap = await getDoc(doc(db, "students", user.uid));
         const userData = docSnap.data();
-        console.log(userData);
         const attendanceRef = collection(db, "attendance");
         const q = query(attendanceRef, where("studentId", "==", userData.uid));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
+          attendanceArray.push(doc.data());
         });
+        currentStudent = {
+          studentData: userData,
+          studentAttendance: attendanceArray,
+        };
+        console.log(currentStudent);
         dispatch({
           type: LOGIN,
-          payload: userData,
+          payload: currentStudent,
         });
-        window.notify(`${userData.name} is already logged in.`);
       }
     });
   } catch (error) {

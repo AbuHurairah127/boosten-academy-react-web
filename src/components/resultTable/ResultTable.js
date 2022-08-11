@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { marks } from "./../../constantData/Data";
+import Attendance from "../attendance/Attendance";
 
 const ResultTable = () => {
   const isAuthenticated = useSelector(
@@ -9,15 +9,8 @@ const ResultTable = () => {
   );
   const user = useSelector((store) => store.authReducer.cUser);
   return (
-    <div className="w-screen min-h-96 flex flex-col items-center justify-evenly overflow-auto">
-      <div className="w-[90vw] text-right">
-        <Link
-          to="/change-password"
-          className="absolute top-16 right-6 text-[#023047] hover:underline hover:underline-offset-2"
-        >
-          <span>Change Password?</span>
-        </Link>
-      </div>
+    <div className="w-screen flex flex-col items-center justify-evenly overflow-auto">
+      <div className="w-[90vw] text-right"></div>
       {isAuthenticated && (
         <div className="w-[90vw] text-center">
           <span className="font-bold text-lg block md:inline ">
@@ -205,6 +198,7 @@ const ResultTable = () => {
           </div>
         </div>
       </div>
+      <Attendance />
     </div>
   );
 };
