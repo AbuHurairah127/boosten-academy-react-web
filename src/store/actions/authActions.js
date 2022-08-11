@@ -77,7 +77,11 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
         const docSnap = await getDoc(doc(db, "students", user.uid));
         const userData = docSnap.data();
         const attendanceRef = collection(db, "attendance");
-        const q = query(attendanceRef, where("studentId", "==", userData.uid));
+        const q = query(
+          attendanceRef,
+          where("studentId", "==", userData.uid),
+          orderBy("")
+        );
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
           attendanceArray.push(doc.data());

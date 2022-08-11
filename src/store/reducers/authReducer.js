@@ -29,6 +29,9 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: isUserLogginedNow,
         cUser: user,
         cUserAttendance: userAttendance,
+        noOfPresentDays: presents,
+        noOfAbsents: absents,
+        totalDays: totalNoOfDays,
       };
     }
     case LOGOUT: {

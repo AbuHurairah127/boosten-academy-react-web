@@ -6,6 +6,8 @@ import Login from "../pages/login/Login";
 import Result from "../pages/result/Result";
 import PrivateRoutes from "./PrivateRoutes";
 import ChangePassword from "../pages/changePassword/ChangePassword";
+import { atRule } from "postcss";
+import attendanceDetails from "../pages/attendanceDetails/attendanceDetails";
 
 const Routing = () => {
   const isUserLoggined = useSelector(
@@ -23,6 +25,10 @@ const Routing = () => {
           <Route
             path="/result"
             element={<PrivateRoutes Component={Result} />}
+          />
+          <Route
+            path="/attendance-details"
+            element={<PrivateRoutes Component={attendanceDetails} />}
           />
           <Route
             path="/change-password"
