@@ -12,13 +12,12 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="w-full h-[70vh] flex flex-col items-center justify-center md:bg-cover"
+      className="w-full h-[70vh] flex flex-col items-center bg-top justify-center md:bg-cover"
       style={{
         backgroundImage: `linear-gradient(0deg,rgba(2, 48, 71, 0.95),rgba(0, 180, 216, 0.15)),url(${hero})`,
         objectFit: "contain",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
       }}
     >
       <div className="flex flex-wrap justify-center -items-center w-[80vw]">

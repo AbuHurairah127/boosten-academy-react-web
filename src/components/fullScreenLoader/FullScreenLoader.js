@@ -12,7 +12,7 @@ const FullScreenLoader = () => {
       <img
         src={logo}
         alt="Gulberg Boston Academy"
-        className="imgFullScreenLoader"
+        className="imgFullScreenLoader md:aspect-square aspect-video"
       />
     </div>
   );
