@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "./config/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import "./config/global";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

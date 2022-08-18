@@ -16,7 +16,7 @@ const authReducer = (state = initialState, action) => {
       let presents = 0;
       let absents = 0;
       let totalNoOfDays = 0;
-      userAttendance.map((attendance) => {
+      userAttendance.forEach((attendance) => {
         if (attendance.attendanceStatus === true) {
           presents++;
         }
