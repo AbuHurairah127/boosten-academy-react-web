@@ -18,6 +18,7 @@ export const userLogin = (data, setButtonLoader) => async (dispatch) => {
   try {
     let attendanceArray = [];
     let currentStudent = {};
+    let marksArray = [];
     setButtonLoader(true);
     data.userName = `${data.userName}@gulbergbostonacademy.web.app`;
     await signInWithEmailAndPassword(auth, data.userName, data.password);
@@ -30,10 +31,21 @@ export const userLogin = (data, setButtonLoader) => async (dispatch) => {
     querySnapshot.forEach((doc) => {
       attendanceArray.push(doc.data());
     });
+    const marksRef = collection(db, "marks");
+    const marks = query(marksRef, where("studentId", "==", userData.uid));
+    const marksSnapshot = await getDocs(marks);
+    marksSnapshot.forEach((doc) => {
+      marksArray.push(doc.data());
+    });
+    marksArray = marksArray.sort((a, b) => a.testNo - b.testNo);
+    let subjects = JSON.parse(userData.subjects);
     currentStudent = {
       studentData: userData,
       studentAttendance: attendanceArray,
+      studentSubjects: subjects,
+      studentMarks: marksArray,
     };
+
     dispatch({
       type: LOGIN,
       payload: currentStudent,
@@ -67,6 +79,7 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
   try {
     onAuthStateChanged(auth, async (user) => {
       let attendanceArray = [];
+      let marksArray = [];
       let currentStudent = {};
       if (user) {
         const docSnap = await getDoc(doc(db, "students", user.uid));
@@ -77,9 +90,22 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
         querySnapshot.forEach((doc) => {
           attendanceArray.push(doc.data());
         });
+        const marksRef = collection(db, "marks");
+        const marks = query(marksRef, where("studentId", "==", userData.uid));
+        const marksSnapshot = await getDocs(marks);
+        marksSnapshot.forEach((doc) => {
+          marksArray.push(doc.data());
+        });
+        marksArray = marksArray.sort((a, b) => a.testNo - b.testNo);
+        console.log("====================================");
+        console.log(marksArray);
+        console.log("====================================");
+        let subjects = JSON.parse(userData.subjects);
         currentStudent = {
           studentData: userData,
           studentAttendance: attendanceArray,
+          studentSubjects: subjects,
+          studentMarks: marksArray,
         };
         dispatch({
           type: LOGIN,

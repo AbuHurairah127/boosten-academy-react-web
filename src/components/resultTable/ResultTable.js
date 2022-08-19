@@ -8,6 +8,12 @@ const ResultTable = () => {
     (store) => store.authReducer.isAuthenticated
   );
   const user = useSelector((store) => store.authReducer.cUser);
+  const userMarks = useSelector((store) => store.authReducer.cUserMarks);
+  const userSubjects = useSelector((store) => store.authReducer.cUserSubjects);
+
+  console.log("====================================");
+  console.log(userSubjects);
+  console.log("====================================");
   return (
     <div className="w-screen flex flex-col items-center justify-evenly overflow-none">
       <div className="w-screen min-h-max">
@@ -34,7 +40,7 @@ const ResultTable = () => {
         <Attendance />
       </div>
       <h1 className="text-4xl font-bold py-5">Result</h1>
-      <Table className="max-w-[90vw]">
+      <Table className="max-w-[90vw] my-8">
         <Thead className="bg-gray-800">
           <Tr>
             <Td
@@ -43,42 +49,36 @@ const ResultTable = () => {
             >
               Test No.
             </Td>
-            {marks.map((item, index) => (
+            {userSubjects.map((item, index) => (
               <Td
                 key={index}
-                className="text-white py-2 md:text-center text-xl"
+                className=" md:text-white py-2 md:text-center text-xl"
                 style={{ fontFamily: "work sans" }}
               >
-                {item.sub}
+                {item}
               </Td>
             ))}
           </Tr>
         </Thead>
+
         <Tbody className="w-full">
-          <Tr className="py-2 bg-gray-200 border-y-2 border-gray-900">
-            <Td className="text-center py-2">Test No. {1}</Td>
-            {marks.map((item, i) => (
-              <Td className="text-center py-2" key={i}>
-                {item.marks}
-              </Td>
-            ))}
-          </Tr>
-          <Tr>
-            <Td className="text-center py-2">Test No. {2}</Td>
-            {marks.map((item, i) => (
-              <Td className="text-center py-2" key={i}>
-                {item.marks}
-              </Td>
-            ))}
-          </Tr>
-          <Tr className="py-2 bg-gray-200 border-y-2 border-gray-900">
-            <Td className="text-center py-2">Test No. {3}</Td>
-            {marks.map((item, i) => (
-              <Td className="text-center py-2" key={i}>
-                {item.marks}
-              </Td>
-            ))}
-          </Tr>
+          {userMarks.map((item, i) => {
+            return (
+              <Tr
+                key={i}
+                className="py-2 bg-gray-200 border-y-2 border-gray-900"
+              >
+                <Td className="text-center py-2">Test No. {item.testNo}</Td>
+                {userSubjects.map((subject, i) => {
+                  return (
+                    <Td className="text-center py-2" key={i}>
+                      {item.obtainedMarks[subject]}/{item.totalMarks[subject]}
+                    </Td>
+                  );
+                })}
+              </Tr>
+            );
+          })}
         </Tbody>
       </Table>
     </div>

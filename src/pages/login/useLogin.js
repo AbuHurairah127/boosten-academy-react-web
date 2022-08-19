@@ -18,6 +18,7 @@ const useLogin = () => {
       window.notify("Please fill all the input fields properly!", "error");
     } else {
       dispatch(userLogin(loginData, setButtonLoading));
+      setLoginData({ userName: "", password: "" });
     }
   };
   return {

@@ -6,6 +6,8 @@ let initialState = {
   noOfPresentDays: 0,
   totalDays: 0,
   noOfAbsents: 0,
+  cUserMarks: [],
+  cUserSubjects: [],
 };
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -23,6 +25,8 @@ const authReducer = (state = initialState, action) => {
         totalNoOfDays++;
       });
       absents = totalNoOfDays - presents;
+      let marksArray = action.payload.studentMarks;
+      let subjects = action.payload.studentSubjects;
       return {
         ...state,
         isAuthenticated: isUserLogginedNow,
@@ -31,6 +35,8 @@ const authReducer = (state = initialState, action) => {
         noOfPresentDays: presents,
         noOfAbsents: absents,
         totalDays: totalNoOfDays,
+        cUserMarks: marksArray,
+        cUserSubjects: subjects,
       };
     }
     case LOGOUT: {
