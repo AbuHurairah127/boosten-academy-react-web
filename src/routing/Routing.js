@@ -7,7 +7,7 @@ import Result from "../pages/result/Result";
 import PrivateRoutes from "./PrivateRoutes";
 import ChangePassword from "../pages/changePassword/ChangePassword";
 
-const Routing = () => {
+const Routing = (props) => {
   const isUserLoggined = useSelector(
     (store) => store.authReducer.isAuthenticated
   );
@@ -15,7 +15,7 @@ const Routing = () => {
     <BrowserRouter>
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home modalOpen={props.modalOpen} />} />
           <Route
             path="/login"
             element={!isUserLoggined ? <Login /> : <Navigate to="/result" />}

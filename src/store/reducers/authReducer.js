@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "./../types/constants";
+import { LOGIN, LOGOUT, NEWS } from "./../types/constants";
 let initialState = {
   isAuthenticated: false,
   cUser: {},
@@ -8,6 +8,7 @@ let initialState = {
   noOfAbsents: 0,
   cUserMarks: [],
   cUserSubjects: [],
+  news: [],
 };
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -45,6 +46,13 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: isUserLogginedNow,
         cUser: {},
+      };
+    }
+    case NEWS: {
+      let newNews = action.payload;
+      return {
+        ...state,
+        news: newNews,
       };
     }
     default:

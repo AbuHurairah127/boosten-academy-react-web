@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "../types/constants";
+import { LOGIN, LOGOUT, NEWS } from "../types/constants";
 import { auth, db } from "./../../config/firebase";
 import {
   signInWithEmailAndPassword,
@@ -13,6 +13,7 @@ import {
   query,
   where,
   getDocs,
+  orderBy,
 } from "firebase/firestore/lite";
 export const userLogin = (data, setButtonLoader) => async (dispatch) => {
   try {
@@ -84,12 +85,14 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
       if (user) {
         const docSnap = await getDoc(doc(db, "students", user.uid));
         const userData = docSnap.data();
-        const attendanceRef = collection(db, "attendance");
-        const q = query(attendanceRef, where("studentId", "==", userData.uid));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          attendanceArray.push(doc.data());
-        });
+
+        const attendanceRef = doc(db, "attendance", user.uid);
+        const attendanceSnap = await getDoc(attendanceRef);
+
+        if (attendanceSnap.exists()) {
+          const attendance = attendanceSnap.data();
+          attendanceArray = Object.values(attendance);
+        }
         const marksRef = collection(db, "marks");
         const marks = query(marksRef, where("studentId", "==", userData.uid));
         const marksSnapshot = await getDocs(marks);
@@ -97,9 +100,6 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
           marksArray.push(doc.data());
         });
         marksArray = marksArray.sort((a, b) => a.testNo - b.testNo);
-        console.log("====================================");
-        console.log(marksArray);
-        console.log("====================================");
         let subjects = JSON.parse(userData.subjects);
         currentStudent = {
           studentData: userData,
@@ -133,5 +133,22 @@ export const passwordUpdate = (data, setIsLoading) => async (dispatch) => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2500);
+  }
+};
+export const fetchNews = () => async (dispatch) => {
+  try {
+    let array = [];
+    const q = query(collection(db, "news"), orderBy("createdAt"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      let data = doc.data();
+      array.push(data);
+    });
+    dispatch({
+      type: NEWS,
+      payload: array,
+    });
+  } catch (error) {
+    window.notify(error.message, "error");
   }
 };

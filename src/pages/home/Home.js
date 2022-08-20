@@ -8,14 +8,14 @@ import Bottom from "../../components/bottom/Bottom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="container-fluid">
       <div className="navbarContainer z-0">
         <Navbar />
       </div>
       <div className="heroContainer z-0">
-        <Hero />
+        <Hero modalOpen={props.modalOpen} />
       </div>
       <div className="aboutUsContainer">
         <AboutUs />

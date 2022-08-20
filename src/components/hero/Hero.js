@@ -4,11 +4,10 @@ import Button from "../button/Button";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
 import hero from "./../../assets/hero.jpg";
-const Hero = () => {
+const Hero = (props) => {
   const isUserLoggined = useSelector(
     (store) => store.authReducer.isAuthenticated
   );
-
   return (
     <div
       id="hero"
@@ -37,20 +36,23 @@ const Hero = () => {
           Academy
         </h1>
       </div>
-      <div className="text-3xl text-white pt-5 hidden md:block text-center w-[80vw]">
-        <Typewriter
-          options={{
-            strings: [
-              "The Academy of Science and Commerce",
-              "Leading Students Towards Excellence",
-              "Under the Supervision of the Teachers from Renowned Universities,Colleges & Schools",
-              "An Excellent Test System for all Classes",
-            ],
-            autoStart: true,
-            loop: true,
-          }}
-        />
-      </div>
+      {!props.modalOpen && (
+        <div className="text-3xl text-white pt-5 hidden md:block text-center w-[80vw]">
+          <Typewriter
+            options={{
+              strings: [
+                "The Academy of Science and Commerce",
+                "Leading Students Towards Excellence",
+                "Under the Supervision of the Teachers from Renowned Universities,Colleges & Schools",
+                "An Excellent Test System for all Classes",
+              ],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </div>
+      )}
+
       <div className="mt-8">
         {isUserLoggined ? (
           <Link to="/result">

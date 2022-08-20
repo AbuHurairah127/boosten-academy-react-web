@@ -43,7 +43,7 @@ const Attendance = () => {
               : "text-red-500 font-bold text-xl"
           }
         >
-          {(presents / totalDays) * 100} <span>% Attendance</span>{" "}
+          {parseInt((presents / totalDays) * 100)} <span>% Attendance</span>{" "}
         </span>
       </div>
     </div>
