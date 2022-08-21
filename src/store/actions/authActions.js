@@ -88,7 +88,7 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
         const docSnap = await getDoc(doc(db, "students", user.uid));
         const userData = docSnap.data();
         if (userData) {
-          const attendanceRef = doc(db, "attendance", user.uid);
+          const attendanceRef = doc(db, "attendance", userData.uid);
           const attendanceSnap = await getDoc(attendanceRef);
 
           if (attendanceSnap.exists()) {
