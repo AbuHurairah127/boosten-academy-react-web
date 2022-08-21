@@ -41,7 +41,7 @@ const ResultTable = () => {
           <Thead className="bg-gray-800">
             <Tr>
               <Td
-                className="text-[#F9995D] py-2 md:text-center text-xl"
+                className="text-[#F9995D] py-2 md:text-center w-32"
                 style={{ fontFamily: "work sans" }}
               >
                 Test No.
@@ -49,7 +49,7 @@ const ResultTable = () => {
               {userSubjects.map((item, index) => (
                 <Td
                   key={index}
-                  className=" md:text-white py-2 md:text-center text-xl"
+                  className=" md:text-white  md:text-center w-32"
                   style={{ fontFamily: "work sans" }}
                 >
                   {item}
