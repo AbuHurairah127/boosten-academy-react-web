@@ -6,12 +6,10 @@ import NavLinks from "./navLinks/NavLinks";
 import { Link } from "react-router-dom";
 import Button from "../button/Button";
 import { useSelector } from "react-redux/es/exports";
-import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import useNavbar from "./useNavbar";
 import ButtonLoader from "../buttonLoader/ButtonLoader";
 const Navbar = () => {
   const { isLoggingOut, onLogoutHandler } = useNavbar();
-  const dispatch = useDispatch();
   const isUserLoggined = useSelector(
     (store) => store.authReducer.isAuthenticated
   );

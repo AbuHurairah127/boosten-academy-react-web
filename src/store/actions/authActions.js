@@ -14,6 +14,7 @@ import {
   where,
   getDocs,
   orderBy,
+  setDoc,
 } from "firebase/firestore/lite";
 export const userLogin = (data, setButtonLoader) => async (dispatch) => {
   try {
@@ -26,12 +27,13 @@ export const userLogin = (data, setButtonLoader) => async (dispatch) => {
     let user = auth.currentUser;
     const docSnap = await getDoc(doc(db, "students", user.uid));
     let userData = docSnap.data();
-    const attendanceRef = collection(db, "attendance");
-    const q = query(attendanceRef, where("studentId", "==", user.uid));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      attendanceArray.push(doc.data());
-    });
+    const attendanceRef = doc(db, "attendance", user.uid);
+    const attendanceSnap = await getDoc(attendanceRef);
+
+    if (attendanceSnap.exists()) {
+      const attendance = attendanceSnap.data();
+      attendanceArray = Object.values(attendance);
+    }
     const marksRef = collection(db, "marks");
     const marks = query(marksRef, where("studentId", "==", userData.uid));
     const marksSnapshot = await getDocs(marks);
@@ -85,32 +87,42 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
       if (user) {
         const docSnap = await getDoc(doc(db, "students", user.uid));
         const userData = docSnap.data();
+        if (userData) {
+          const attendanceRef = doc(db, "attendance", user.uid);
+          const attendanceSnap = await getDoc(attendanceRef);
 
-        const attendanceRef = doc(db, "attendance", user.uid);
-        const attendanceSnap = await getDoc(attendanceRef);
+          if (attendanceSnap.exists()) {
+            const attendance = attendanceSnap.data();
+            attendanceArray = Object.values(attendance);
+          }
+          const marksRef = doc(db, "marks", user.uid);
+          const marksSnap = await getDoc(marksRef);
 
-        if (attendanceSnap.exists()) {
-          const attendance = attendanceSnap.data();
-          attendanceArray = Object.values(attendance);
+          if (marksSnap.exists()) {
+            const marks = await marksSnap.data();
+            marksArray = Object.values(marks);
+          }
+
+          marksArray = marksArray.sort((a, b) => a.testNo - b.testNo);
+          let subjects = JSON.parse(userData.subjects);
+          currentStudent = {
+            studentData: userData,
+            studentAttendance: attendanceArray,
+            studentSubjects: subjects,
+            studentMarks: marksArray,
+          };
+          dispatch({
+            type: LOGIN,
+            payload: currentStudent,
+          });
+        } else {
+          await signOut(auth);
+          dispatch({ type: LOGOUT });
+          window.notify(
+            "You are not allowed to sign in any more.Please contact management for more information.",
+            "info"
+          );
         }
-        const marksRef = collection(db, "marks");
-        const marks = query(marksRef, where("studentId", "==", userData.uid));
-        const marksSnapshot = await getDocs(marks);
-        marksSnapshot.forEach((doc) => {
-          marksArray.push(doc.data());
-        });
-        marksArray = marksArray.sort((a, b) => a.testNo - b.testNo);
-        let subjects = JSON.parse(userData.subjects);
-        currentStudent = {
-          studentData: userData,
-          studentAttendance: attendanceArray,
-          studentSubjects: subjects,
-          studentMarks: marksArray,
-        };
-        dispatch({
-          type: LOGIN,
-          payload: currentStudent,
-        });
       }
     });
   } catch (error) {
@@ -126,6 +138,8 @@ export const passwordUpdate = (data, setIsLoading) => async (dispatch) => {
     setIsLoading(true);
     const user = auth.currentUser;
     await updatePassword(user, data.newPassword);
+    const passwordRef = doc(db, "students", user.uid);
+    await setDoc(passwordRef, { password: data.newPassword }, { merge: true });
     window.notify("Password updated successfully", "success");
   } catch (error) {
     window.notify(error.message, "error");
