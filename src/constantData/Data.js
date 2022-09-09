@@ -12,13 +12,13 @@ export const classes = [
   {
     class: 1,
     sup: "st",
-    extClsTxt: "-year",
+    extClsTxt: "-Year",
     subjects: ["Pre-Medical", "Pre-Engineering", "ICS", "I.Com"],
   },
   {
     class: 2,
     sup: "nd",
-    extClsTxt: "-year",
+    extClsTxt: "-Year",
     subjects: ["Pre-Medical", "Pre-Engineering", "ICS", "I.Com"],
   },
 ];

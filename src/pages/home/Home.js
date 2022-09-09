@@ -11,7 +11,7 @@ import Footer from "../../components/footer/Footer";
 const Home = (props) => {
   return (
     <div className="container-fluid">
-      <div className="navbarContainer z-0">
+      <div className="navbarContainer w-screen z-50 fixed">
         <Navbar />
       </div>
       <div className="heroContainer z-0">
