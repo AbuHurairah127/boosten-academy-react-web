@@ -33,7 +33,7 @@ const Bottom = () => {
             >
               <AiOutlineInstagram
                 size={30}
-                className="transition-color delay-75 duration-200 ease-in-out  hover:fill-pink-700 hover:bg-white rounded-sm hover:p-0.5"
+                className="transition-color delay-75 duration-200 ease-in-out  fill-pink-700 bg-white rounded-sm hover:p-0.5"
               />
             </a>
             <a
@@ -43,7 +43,7 @@ const Bottom = () => {
             >
               <AiFillFacebook
                 size={30}
-                className="transition-color delay-75 duration-200 ease-in-out  hover:fill-blue-700 hover:bg-white rounded-sm hover:p-1"
+                className="transition-color delay-75 duration-200 ease-in-out  fill-blue-700 bg-white rounded-sm hover:p-1"
               />
             </a>
             <a
@@ -53,7 +53,7 @@ const Bottom = () => {
             >
               <ImWhatsapp
                 size={30}
-                className="transition-color delay-75 duration-200 ease-in-out p-0.5 hover:fill-green-500 hover:bg-white rounded-sm hover:p-1"
+                className="transition-color delay-75 duration-200 ease-in-out p-0.5 fill-green-500 bg-white rounded-sm hover:p-1"
               />
             </a>
           </div>
