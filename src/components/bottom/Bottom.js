@@ -61,26 +61,43 @@ const Bottom = () => {
 
         <div className="right lg:mr-5">
           <div className="rightHeader flex flex-col  lg:justify-center h-full items-center lg:items-start">
-            <div className="py-5 lg:py-0">
-              <p className="text-[#628dc5]">
-                Address:{" "}
-                <span className="text-white pl-3">
-                  127/C Gulberg Faisalabad
-                </span>
-              </p>
-              <a href="tel:03336584571" className="text-[#628dc5] block">
-                Phone: <span className="text-white pl-3">0333-6584571</span>
-              </a>
-              <a href="tel:0412628626" className="text-[#628dc5] lock">
-                Tel: <span className="text-white pl-3">041-2628626</span>
-              </a>
-              <a
-                href="mailto:gbacademy127@gmail.com"
-                className="text-[#628dc5] block"
-              >
-                Mail:{" "}
-                <span className="text-white pl-3">gbacademy127@gmail.com</span>
-              </a>
+            <div className="flex">
+              <div className="py-5 lg:py-0">
+                <p className="text-[#628dc5]">Address: </p>
+                <a
+                  href="mailto:gbacademy127@gmail.com"
+                  className="text-[#628dc5] block"
+                >
+                  Mail:
+                </a>
+                <a href="tel:03336584571" className="text-[#628dc5] block">
+                  Phone:
+                </a>
+                <a href="tel:0412628626" className="text-[#628dc5] lock">
+                  Tel:
+                </a>
+              </div>
+              <div className="py-5 lg:py-0">
+                <p className="text-[#628dc5]">
+                  <span className="text-white pl-3">
+                    127/C Gulberg Faisalabad
+                  </span>
+                </p>
+                <a
+                  href="mailto:gbacademy127@gmail.com"
+                  className="text-[#628dc5] block"
+                >
+                  <span className="text-white pl-3">
+                    gbacademy127@gmail.com
+                  </span>
+                </a>
+                <a href="tel:03336584571" className="text-[#628dc5] block">
+                  <span className="text-white pl-3">0333-6584571</span>
+                </a>
+                <a href="tel:0412628626" className="text-[#628dc5] lock">
+                  <span className="text-white pl-3">041-2628626</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
