@@ -19,12 +19,7 @@ const ContactForm = () => {
   const addSuggestion = (e) => {
     setSuggestion({ ...suggestion, [e.target.name]: e.target.value });
     e.preventDefault();
-    if (
-      suggestion.name === "" ||
-      suggestion.email === "" ||
-      suggestion.phone === "" ||
-      suggestion.message === ""
-    ) {
+    if (suggestion.message === "") {
       window.notify("Please fill all the input fields properly.", "error");
     } else {
       dispatch(createSuggestion(suggestion, setLoading));
@@ -49,10 +44,9 @@ const ContactForm = () => {
               type="text"
               name="name"
               id="userName"
-              placeholder="Your Name *"
+              placeholder="Your Name (Optional)"
               value={suggestion.name}
               onChange={(e) => onChangeHandler(e)}
-              required
               className="md:w-[28vw] outline-0 px-4 py-2 rounded-sm border-2"
             />
             <input
@@ -61,8 +55,7 @@ const ContactForm = () => {
               id="email"
               value={suggestion.email}
               onChange={(e) => onChangeHandler(e)}
-              placeholder="Email *"
-              required
+              placeholder="Email (Optional)"
               className="md:w-[28vw] outline-0 px-4 py-2 rounded-sm border-2"
             />
           </div>
@@ -86,8 +79,7 @@ const ContactForm = () => {
               value={suggestion.phone}
               onChange={(e) => onChangeHandler(e)}
               id="tel"
-              placeholder="Phone *"
-              required
+              placeholder="Phone (Optional)"
               className="md:w-[28vw] outline-0 px-4 py-2 rounded-sm border-2"
             />
           </div>
