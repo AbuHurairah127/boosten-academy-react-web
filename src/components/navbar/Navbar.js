@@ -8,6 +8,7 @@ import Button from "../button/Button";
 import { useSelector } from "react-redux/es/exports";
 import useNavbar from "./useNavbar";
 import ButtonLoader from "../buttonLoader/ButtonLoader";
+import Logo from "./../../assets/logo.png";
 const Navbar = () => {
   const { isLoggingOut, onLogoutHandler } = useNavbar();
   const isUserLoggined = useSelector(
@@ -19,11 +20,12 @@ const Navbar = () => {
     <div className="max-w-screen flex flex-col h-16 bg-[#1d3557] z-50">
       <div className="flex w-full justify-between items-center h-full px-3 md:px-6 lg:px-8 xl:px-12">
         <div
-          className="left text-white w-fit whitespace-normal text-xl"
+          className="left text-white flex items-center justify-center w-fit whitespace-normal text-xl"
           style={{
             fontFamily: "work sans",
           }}
         >
+          <img src={Logo} alt="" className="w-24 mr-3" />
           <Link to="/">
             <span className="text-[#F9995D]">Gulberg</span>{" "}
             <span className="text-[#F9995D]">Boston</span> Acadmey
