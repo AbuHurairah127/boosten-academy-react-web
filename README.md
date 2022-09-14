@@ -4,7 +4,7 @@ This project is done by me the real is working.
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project , I am using reqct js as main front end technology and redux for state management.
 
 ### `npm start`
 
