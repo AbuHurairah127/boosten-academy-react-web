@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# The clone of Gulberg Boston Academy Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is done by me the real is working. 
 
 ## Available Scripts
 
