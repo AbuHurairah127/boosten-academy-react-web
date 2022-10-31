@@ -85,6 +85,7 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
       let marksArray = [];
       let currentStudent = {};
       if (user) {
+        console.log(user);
         const docSnap = await getDoc(doc(db, "students", user.uid));
         const userData = docSnap.data();
         if (userData) {
@@ -128,9 +129,7 @@ export const fetchCurrentUser = (setPreLoader) => async (dispatch) => {
   } catch (error) {
     window.notify(error.message, "error");
   } finally {
-    setTimeout(() => {
-      setPreLoader(false);
-    }, 7500);
+    setPreLoader(false);
   }
 };
 export const passwordUpdate = (data, setIsLoading) => async (dispatch) => {
