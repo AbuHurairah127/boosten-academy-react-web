@@ -3,15 +3,10 @@ import companyCEO from "./../../assets/companyCEO.png";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-screen lg:min-h-[600px] xl:h-[945px]" id="aboutUs">
+    <div className="max-w-screen " id="aboutUs">
       <div className="flex items-center py-8 md:p-10 lg:px-20 lg:py-12 xl:p-24">
-        <img
-          src={companyCEO}
-          alt="Company CEO"
-          className="w-5/6 h-full shadow-2xl hidden lg:inline"
-        />
         <div
-          className="bg-[#1d3557] shadow-xl shadow-[#1d3557] rounded-md w-screen md:min-w-[350px] h-5/6 lg:relative lg:right-40"
+          className="bg-[#1d3557] shadow-xl shadow-[#1d3557] rounded-md w-screen md:min-w-[350px] h-5/6 "
           style={{
             boxShadow:
               "0px 20px 24px -4px rgba(17, 24, 39, 0.1), 0px 8px 8px -4px rgba(17, 24, 39, 0.04)",
