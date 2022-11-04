@@ -26,7 +26,7 @@ const AboutUs = () => {
             competence, attitude, professional growth, value inculcation and
             social cohesion.
           </p>
-          <p
+          {/* <p
             className="px-5 text-white leading-5 pt-3"
             style={{
               fontFamily: "work sans",
@@ -35,7 +35,7 @@ const AboutUs = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             veritatis omnis consequuntur adipisci obcaecati natus ducimus, a
             dolores nostrum itaque, amet ratione quis. Rem, magnam?
-          </p>
+          </p> */}
           <div className="mx-5 my-10"></div>
         </div>
       </div>
