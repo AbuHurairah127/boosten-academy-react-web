@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Attendance from "../attendance/Attendance";
 import { Table, Thead, Tbody, Tr, Td } from "react-super-responsive-table";
@@ -9,7 +9,8 @@ const ResultTable = () => {
   const user = useSelector((store) => store.authReducer.cUser);
   const userMarks = useSelector((store) => store.authReducer.cUserMarks);
   const userSubjects = useSelector((store) => store.authReducer.cUserSubjects);
-
+  const [obtainedMarksSum, setObtainedMarksSum] = useState(0);
+  const [totalMarksSum, setTotalMarksSum] = useState(0);
   return (
     <div className="w-screen flex flex-col items-center justify-evenly overflow-none">
       <div className="w-screen min-h-max">
@@ -55,6 +56,18 @@ const ResultTable = () => {
                   {item}
                 </Td>
               ))}
+              <Td
+                className="text-[#F9995D] py-2 md:text-center w-32"
+                style={{ fontFamily: "work sans" }}
+              >
+                Obtained Marks
+              </Td>
+              <Td
+                className="text-[#F9995D] py-2 md:text-center w-32"
+                style={{ fontFamily: "work sans" }}
+              >
+                Total Marks
+              </Td>
             </Tr>
           </Thead>
           <Tbody className="w-full">
@@ -72,6 +85,11 @@ const ResultTable = () => {
                       </Td>
                     );
                   })}
+                  <Td className="text-center py-2">
+                    {userSubjects.map((subject, i) => {
+                      return;
+                    })}
+                  </Td>
                 </Tr>
               );
             })}
